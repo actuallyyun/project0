@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Search</title>
+    <link rel="stylesheet" href="/Users/Ayun/VsCodeProjects/CS50W/search/as-style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="nav-items">
+                    <a href="file:///Users/Ayun/VsCodeProjects/CS50W/search/project0/index.html"><img
+                            src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg"
+                            alt="Go back to google"></a>
+                    <a id="toimage" href="/Users/Ayun/VsCodeProjects/CS50W/search/project0/image.html">Images</a>
+
+                </div>
+            </nav>
+        </header>
+
+
+        <div class="title">
+            <label style="margin-left:25px;">Advanced Search</label>
+        </div>
+
+        <div class="breakline"></div>
+
+        <main>
+            <form action="/search" id="advanced-search-input" method=ET" name="f"></form>
+            <div class="form-title">
+                <div>
+                    <p><span>Find pages with...</span></p>
+                </div>
+                <div>
+                    <span class="hide" style="font-weight: 700; color: #777;font-size: 13px;"> To do this in the
+                        search box.</span>
+                </div>
+            </div>
+
+            <div class="form-groups">
+                <div class="each-form-group">
+                    <div class="form-components">
+                        <div class="all-labels"><label for="all-words">all these words:</label></div>
+                        <div class="input-des">
+                            <div class="all-inputs"><input id="all-words" type="text" class="search-input"></input>
+                            </div>
+                            <div class="hide all-des">
+                                <p>Type the important words: tri-colour rat terrier</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-components">
+                        <div class="all-labels"><label for="exact-words" class="label-content">the exact word or
+                                phrase:</label></div>
+                        <div class="input-des">
+                            <div class="all-inputs"><input id="exact-words" type="text" class="search-input"></input>
+                            </div>
+                            <div class="hide all-des">
+                                <p>Put exact words in quotes: "rat terrier"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-components">
+                        <div class="all-labels"><label for="any-of-words" class="label-content">any of these
+                                words:</label>
+                        </div>
+                        <div class="input-des">
+                            <div class="all-inputs"><input id="any-of-words" type="text" class="search-input"></input>
+                            </div>
+                            <div class="hide all-des">
+                                <p>Type OR between all the words you want: miniature OR standard</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-components">
+                        <div class="all-labels"><label for="none-of-words" class="label-content">none of these
+                                words:</label>
+                        </div>
+                        <div class="input-des">
+                            <div class="all-inputs"><input id="none-of-words" type="text" class="search-input"></input>
+                            </div>
+                            <div class="hide all-des">
+                                <p>Put a minus sign just before words that you don't want: -rodent, -"Jack Russell"</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-components">
+                        <div class="all-labels"><label for="numbers-range1 numbers-range2" class="label-content">numbers
+                                ranging
+                                from:</label></div>
+                        <div class="input-des">
+                            <div class="all-inputs">
+                                <input id="numbers-range1" type="text" class="search-input"> </input>
+                                <div
+                                    style="display: inline;width: 40px;padding-left: 10px;padding-right:10px;text-align: center;font-size: 13px;color: #202124;">
+                                    to</div>
+
+                                <input id="numbers-range2" type="text" class="search-input"></input>
+                            </div>
+                            <div class="hide all-des">
+
+                                <p>Put two full stops between the numbers and add a unit of measurement: 10..35 kg,
+                                    £300..£500,
+                                    2010..2011
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="breakline"></div>
+            <div class="form-title">
+                <p><span>Then narrow your results by...</span></p>
+            </div>
+            <div class="form-groups">
+                <div class="form-components">
+                    <div class="all-labels"><label for="language" class="label-content">language:</label></div>
+                    <div class="input-des">
+                        <div class="all-inputs"> <select name="languages" id="" class="second-input-group">
+                                <option value="">any language</option>
+                                <option value="">Chinese</option>
+                            </select></div>
+                        <div class="hide"><span>Find pages in the language that you select.
+                            </span></div>
+                    </div>
+                </div>
+                <div class="form-components">
+                    <div class="all-labels">
+                        <label for="language" class="label-content">region:</label>
+                    </div>
+                    <div class="input-des">
+                        <div class="all-inputs"><select name="languages" id="" class="second-input-group">
+                                <option value="">any region</option>
+                                <option value="">Chinese</option>
+                            </select></div>
+                        <div class="hide"><span>Find pages published in a particular region.
+                            </span></div>
+                    </div>
+                </div>
+                <div class="form-components">
+                    <div class="all-labels"><label for="language" class="label-content">last update:</label></div>
+                    <div class="input-des">
+                        <div class="all-inputs"><select name="languages" id="" class="second-input-group">
+                                <option value="">anytime</option>
+                                <option value="">Chinese</option>
+                            </select></div>
+                        <div class="hide"><span>Find pages updated within the time that you specify.
+                            </span></div>
+                    </div>
+                </div>
+
+                <div class="form-components">
+                    <div class="all-labels"><label for="" class="label-content">site or domain:</label></div>
+                    <div class="input-des">
+                        <div class="all-inputs"><input type="text" class="search-input"></div>
+                        <div class="hide">Search one site (like wikipedia.org ) or limit your results to a domain like
+                            .edu,
+                            .org or .gov
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-components">
+                    <div class="all-labels"> <label for="language" class="label-content">terms appearing:</label></div>
+                    <div class="input-des">
+                        <div class="all-inputs"> <select name="languages" id="" class="second-input-group">
+                                <option value="">anywhere in the page</option>
+                                <option value="">Chinese</option>
+                            </select></div>
+                        <div class="hide">Search for terms in the whole page, page title or web address, or links to the
+                            page you're
+                            looking for.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-components">
+                    <div class="all-labels"> <label for="language" class="label-content">SafeSearch:</label></div>
+                    <div class="input-des">
+                        <div class="all-inputs"> <select name="languages" id="" class="second-input-group">
+                                <option value="">anywhere in the page</option>
+                                <option value="">Chinese</option>
+                            </select></div>
+                        <div class="hide">Tell SafeSearch whether to filter sexually explicit content.
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-components">
+                    <div class="all-labels"> <label for="language" class="label-content">file type:</label></div>
+                    <div class="input-des">
+                        <div class="all-inputs"> <select name="languages" id="" class="second-input-group">
+                                <option value="">anywhere in the page</option>
+                                <option value="">Chinese</option>
+                            </select></div>
+                        <div class="hide">Find pages in the format that you prefer.
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-components">
+                    <div class="all-labels">
+                        <label for="language" class="label-content">usage rights:</label>
+                    </div>
+                    <div class="input-des">
+                        <div class="all-inputs"><select name="languages" id="" class="second-input-group">
+                                <option value="">any region</option>
+                                <option value="">Chinese</option>
+                            </select></div>
+                        <div class="hide"><span>Find pages that you are free to use yourself.
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-components">
+                    <div class="all-labels"></div>
+                    <div class="input-des">
+                        <div class="all-inputs" style="justify-content: flex-end;">
+                            <div class="input-button">
+                                <input id="advanced-button" type="submit" value="Advanced Search">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="breakline"></div>
+            <div class="form-title">
+                <p><span>You can also...
+                    </span></p>
+            </div>
+            <div class="extra-feature">
+                <div class="feature-links">
+                    <a href="#">Find pages that are similar to a URL</a>
+                </div>
+                <div class="feature-links">
+                    <a href="#">Search pages that you've visited</a>
+                </div>
+                <div class="feature-links">
+                    <a href="#">Use operators in the search box</a>
+                </div>
+                <div class="feature-links">
+                    <a href="#">Customise your search settings</a>
+                </div>
+            </div>
+
+            </form>
+        </main>
+
+        <footer>
+            <div><span>Spain</span></div>
+            <div>
+                <span class="footer-elements">
+                    <a id="footer-elements" href="#">Help</a>
+                    <a id="footer-elements" href="#">Privacy</a>
+                    <a id="footer-elements" href="#">Terms</a>
+                </span>
+            </div>
+        </footer>
+
+    </div>
+
+
+
+
+
+
+    </div>
+
+
+</body>
+
+</html>
