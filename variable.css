@@ -1,0 +1,119 @@
+.header-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: right;
+}
+.header-group .nav-items {
+  font-family: roboto;
+  font-weight: 400;
+  color: #222;
+  margin: 0.3rem;
+  font-size: 13px;
+}
+.header-group .nav-items:hover {
+  text-decoration: underline !important;
+}
+
+.logo {
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 5rem;
+}
+
+.search-group {
+  max-width: 584px;
+  padding-top: 2rem;
+  height: 140px;
+  margin: auto;
+}
+.search-group .search-bar {
+  display: flex;
+  width: 37rem;
+  height: 3rem;
+  border-radius: 3rem;
+  border: 1px solid #dfe1ef;
+  font-size: 16px;
+  background: #fff;
+}
+.search-group .search-bar:hover {
+  box-shadow: 4px 0px 3px grey, -0.4em 0 0.4em grey;
+}
+.search-group .search-icon {
+  margin-top: 8px;
+  margin-left: 15px;
+  width: 18px;
+  height: 18px;
+  padding-right: 13px;
+}
+.search-group .inputbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.search-group .inputbox #user-input {
+  width: 487px;
+  height: 39px;
+  border: none !important;
+  font-size: 16px;
+  background-color: transparent;
+  margin: 0px;
+  outline: none;
+}
+
+.searchquery-form {
+  margin: auto;
+  align-items: center;
+  align-content: center;
+}
+
+.voice-search {
+  height: 44px;
+  width: 40x;
+  display: flex;
+  margin-top: 10px;
+  padding-left: 1rem;
+  flex-direction: row;
+}
+
+.button-group {
+  margin: 30px;
+}
+.button-group .buttons {
+  background: #f8f9fa;
+  border: 1px solid #f8f9fa;
+  border-radius: 4px;
+  color: #3c4043;
+  font-family: arial, sans-serif;
+  font-size: 14px;
+  margin: 11px 4px;
+  padding: 0 16px;
+  line-height: 27px;
+  height: 36px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (max-width: 640px) {
+  .search-bar {
+    width: 30rem !important;
+    align-items: center;
+    margin: auto;
+  }
+
+  .search-icon {
+    padding-bottom: 1rem;
+  }
+
+  .voice-search {
+    padding-left: 0rem;
+    margin-left: -6rem;
+    padding-top: 0.5rem;
+  }
+}
+
+/*# sourceMappingURL=variable.css.map */
