@@ -78,13 +78,12 @@ def new_page(request):
             new_title = form.cleaned_data['title']
             entries = util.list_entries()
             if (new_title in entries):
-                return render(request, "encyclopedia/new.html", {
-                    "newpageform": form
-                })
+                return HttpResponse("This entry already exists.")
+
             else:
                 content = form.cleaned_data['content']
                 util.save_entry(new_title, content)
-                return HttpResponseRedirect(reverse('encyclopedia:index'))
+                return HttpResponseRedirect(reverse('encyclopedia:title', args=[new_title]))
 
         else:
             return HttpResponse("form not valid")
@@ -96,6 +95,7 @@ def new_page(request):
 
 def edit_page(request):
 
+    # f = EditPageForm(initial={'content':???})
     return render(request, "encyclopedia/edit.html", {
         "editpageform": EditPageForm()
     })
