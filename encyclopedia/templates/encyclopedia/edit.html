@@ -5,8 +5,8 @@ Encyclopedia
 {% endblock %}
 
 {% block body %}
-<h1>Edit your entry</h1>
-<form action="{% url 'encyclopedia:edit' %}" method="POST">
+<h1>Edit your entry {{title}} </h1>
+<form action="{% url 'encyclopedia:submit' title %}" method="POST">
     {% csrf_token %}
     {{ editpageform }}
     <div><input type="submit" value="Edit"></div>

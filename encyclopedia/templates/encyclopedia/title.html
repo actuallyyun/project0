@@ -9,6 +9,9 @@ Encyclopedia
 
 {{ content }}
 <div>
-    <input type="submit" value="Edit">
+    <form action="{% url 'encyclopedia:edit' title %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Edit">
+    </form>
 </div>
 {% endblock %}

@@ -56,7 +56,7 @@ def search_entry(request):
                 search_results = []
                 entries = util.list_entries()
                 for entry in entries:
-                    if query in entry:
+                    if query.lower() in entry.lower():
                         search_results.append(entry)
 
                 # TODO generate a result page if its a subtring
@@ -93,12 +93,32 @@ def new_page(request):
     })
 
 
-def edit_page(request):
+def edit_page(request, title):
+    if request.method == "POST":
+        # get data from the "Edit" action
+        content = util.get_entry(title)
+        # pre-populate the textarea
+        f = EditPageForm(initial={'content': content})
+        # Return the page with exisitng entry data
+        return render(request, "encyclopedia/edit.html", {
+            "editpageform": f,
+            "entry": content,
+            "title": title
 
-    # f = EditPageForm(initial={'content':???})
-    return render(request, "encyclopedia/edit.html", {
-        "editpageform": EditPageForm()
-    })
+        })
+
+
+def submit_edit(request, title):
+    if request.method == "POST":
+        # Get data from the form
+        form = EditPageForm(request.POST)
+        # verify and clean the data
+        if form.is_valid():
+            new_content = form.cleaned_data['newcontent']
+            util.save_entry(title, new_content)
+            return HttpResponseRedirect(reverse('encyclopedia:title', args=[title]))
+
+    return None
 
 
 def random_page(request):
