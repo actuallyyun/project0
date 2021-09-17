@@ -5,6 +5,7 @@ from django import forms
 from django.urls import reverse
 from . import util
 import encyclopedia
+import random
 
 
 class SearchForm(forms.Form):
@@ -97,4 +98,14 @@ def edit_page(request):
 
     return render(request, "encyclopedia/edit.html", {
         "editpageform": EditPageForm()
+    })
+
+
+def random_page(request):
+    entries = util.list_entries()
+    random_entry = random.choice(entries)
+    random_content = util.get_entry(random_entry)
+    return render(request, "encyclopedia/title.html", {
+        "content": random_content,
+        "title": random_entry
     })

@@ -1,3 +1,4 @@
+import random
 from re import search
 from django import urls
 from django.urls import path
@@ -8,6 +9,7 @@ from . import views
 app_name = 'encyclopedia'
 
 urlpatterns = [
+    path("wiki/title/", views.random_page, name="random"),
     path("wiki/edit/", views.edit_page, name="edit"),
     path("wiki/new/", views.new_page, name="new"),
     path("search/", views.search_entry, name="search"),
