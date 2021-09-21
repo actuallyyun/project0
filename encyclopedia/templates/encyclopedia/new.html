@@ -5,12 +5,16 @@ Encyclopedia
 {% endblock %}
 
 {% block body %}
-<h1>Add A New Entry</h1>
-<form action="{% url 'encyclopedia:new' %}" method="POST">
-    {% csrf_token %}
-    <h2>{{ error }}</h2>
-    {{ new_page_form }}
-    <div><input type="submit" value="Save"></div>
-</form>
+<div style="margin-right: 30px; margin-left: 20px;">
+    <h1>Add A New Entry</h1>
+    <form action="{% url 'encyclopedia:new' %}" method="POST">
+        {% csrf_token %}
+        <h2>{{ error }}</h2>
+
+        {{ new_page_form }}
+        <div style="margin-top: 15px;"> <button type="submit" class="btn btn-primary">Save</button></div>
+
+    </form>
+</div>
 
 {% endblock %}

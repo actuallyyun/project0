@@ -1,5 +1,5 @@
 from django.core.files.base import ContentFile
-from django.http.response import HttpResponse, HttpResponseRedirect
+from django.http.response import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django import forms
 from django.urls import reverse
@@ -9,17 +9,19 @@ import random
 
 
 class SearchForm(forms.Form):
-    query = forms.CharField(label="New Query")
+    query = forms.CharField(label="", widget=forms.TextInput(
+        attrs={'class': 'form-control'}))
 
 
 class NewPageForm(forms.Form):
-    title = forms.CharField(label="Title")
-    content = forms.CharField(widget=forms.Textarea)
+    title = forms.CharField(label="Title", widget=forms.TextInput(
+        attrs={'class': 'form-control'}))
+    content = forms.CharField(widget=forms.Textarea(
+        attrs={'class': 'form-control'}))
 
 
 class EditPageForm(forms.Form):
-    title = forms.CharField(label="Title")
-    content = forms.CharField(widget=forms.Textarea, label="Edit this entry:")
+    content = forms.CharField(widget=forms.Textarea, label="")
 
 
 def index(request):
@@ -40,15 +42,15 @@ def get_page(request, title):
             "form": SearchForm()
         })
     else:
-        return HttpResponse("Error:Page Not Found.")
+        raise Http404("Error:Page Not Found.")
 
 
 def search_entry(request):
     # search wiki entries by entering an keyword. If it matches, redirect to the entry page. If not, show
     # results that contain this keyword. It should be case insensitive
 
-    if request.method == "POST":
-        form = SearchForm(request.POST)
+    if request.method == "GET":
+        form = SearchForm(request.GET)
         if form.is_valid():
             query = form.cleaned_data["query"]
 
@@ -116,7 +118,6 @@ def edit_page(request, title):
 
     if request.method == "POST":
         # get data from the "Edit" action
-        title = request.POST.get("edit")
         content = util.get_entry(title)
 
         # pre-populate the textarea
@@ -139,12 +140,11 @@ def edit_page(request, title):
         })
 
 
-def submit_edit(request):
+def submit_edit(request, title):
 
     if request.method == "POST":
         form = EditPageForm(request.POST)
         if form.is_valid():
-            title = form.cleaned_data['title']
             content = form.cleaned_data['content']
         # verify and clean the data
             util.save_entry(title, content)

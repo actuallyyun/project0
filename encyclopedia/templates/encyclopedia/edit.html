@@ -5,11 +5,16 @@ Encyclopedia
 {% endblock %}
 
 {% block body %}
-<h1>Edit your entry {{title}} </h1>
-<form action="{% url 'encyclopedia:submit' %}" method="POST">
+<div style="margin-bottom: 15px;">
+    <h1>Edit "{{title}}" </h1>
+</div>
+<form action="{% url 'encyclopedia:submit' title %}" method="POST">
     {% csrf_token %}
     {{ editpageform }}
-    <div><input type="submit" value="Save changes"></div>
+    <div>
+        <button type="submit" class="btn btn-primary" value="{{ title }}">Save</button>
+
+    </div>
 </form>
 
 {% endblock %}

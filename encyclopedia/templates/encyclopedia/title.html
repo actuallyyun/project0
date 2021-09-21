@@ -11,7 +11,9 @@ Encyclopedia
 <div>
     <form action="{% url 'encyclopedia:edit' title %}" method="POST">
         {% csrf_token %}
-        <button type="submit" name="edit" value="{{title}}" id="edit">Edit</button>
+        <div style="margin-top: 10px;">
+            <button type="submit" class="btn btn-primary" value="{{title}}" id="edit" name="edit">Edit</button>
+        </div>
     </form>
 </div>
 
