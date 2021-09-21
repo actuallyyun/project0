@@ -6,10 +6,10 @@ Encyclopedia
 
 {% block body %}
 <h1>Edit your entry {{title}} </h1>
-<form action="{% url 'encyclopedia:submit' title %}" method="POST">
+<form action="{% url 'encyclopedia:submit' %}" method="POST">
     {% csrf_token %}
     {{ editpageform }}
-    <div><input type="submit" value="Edit"></div>
+    <div><input type="submit" value="Save changes"></div>
 </form>
 
 {% endblock %}

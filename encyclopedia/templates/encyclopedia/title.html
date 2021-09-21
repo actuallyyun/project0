@@ -6,12 +6,13 @@ Encyclopedia
 
 {% block body %}
 <h1>{{ title }}</h1>
-
-{{ content }}
+{% load markdownify %}
+{{ content|markdownify }}
 <div>
     <form action="{% url 'encyclopedia:edit' title %}" method="POST">
         {% csrf_token %}
-        <input type="submit" value="Edit">
+        <button type="submit" name="edit" value="{{title}}" id="edit">Edit</button>
     </form>
 </div>
+
 {% endblock %}
