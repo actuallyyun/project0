@@ -1,12 +1,8 @@
-## Welcome to GitHub Pages
+## Hello!
 
-You can use the [editor on GitHub](https://github.com/actuallyyun/project0-Search/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+### A CSS and HTML project
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Project 0 in the CS50 web programming course.
 
 ```markdown
 Syntax highlighted code block
